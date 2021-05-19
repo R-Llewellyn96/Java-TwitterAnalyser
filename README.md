@@ -5,7 +5,8 @@ and a targeted keyword search for different topics. <br /> <br />
 NOTE: You must have a Twitter Developer account, for this app to work! <br />
 !!! Place 3 files: consumer_key.txt, consumer_secret.txt, bearer_token.txt <br /> 
 each with their corresponding API keys on the first line, inside the "access_codes" folder, <br />
-or this app will not work, as the Twitter API requires user authentication. <br />
+or this app will not work, as the Twitter API requires user authentication. <br /> <br />
+How to use: enter a CLI argument as the twitter handle of the user you wish to scrape e.g. @BBCNews <br />
 <br />
 What do you get with this program?<br />
 <br />  
