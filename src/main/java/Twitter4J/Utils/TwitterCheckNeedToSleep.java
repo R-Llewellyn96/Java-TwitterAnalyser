@@ -19,21 +19,18 @@ public class TwitterCheckNeedToSleep {
      */
     public static void twitterCheckNeedToSleep(String searchFamily, String endPoint, Twitter twitter) throws TwitterException, InterruptedException {
 
-        // Get the status of our API limits, so Twitter doesnt block us
+        // Get the status of our API limits, to prevent blocking
         RateLimitStatus searchTweetsRateLimit = GetRateLimit.getRateLimit(searchFamily, endPoint, twitter);
 
-        //	Do we need to delay because we've already hit our rate limits?
+        //	Check whether we have to wait for our rate limit to reset
         if (searchTweetsRateLimit.getRemaining() == 0) {
 
-            //	Yes we do, unfortunately ...
+            // If we need to wait print to terminal for debugging
             System.out.printf("!!! Sleeping for %d seconds due to rate limits\n", searchTweetsRateLimit.getSecondsUntilReset());
 
-            //	If you sleep exactly the number of seconds, you can make your query a bit too early
-            //	and still get an error for exceeding rate limitations
-            //
-            // 	Adding two seconds seems to do the trick. Sadly, even just adding one second still triggers a
-            //	rate limit exception more often than not.  I have no idea why, and I know from a Comp Sci
-            //	standpoint this is really bad, but just add in 2 seconds and go about your business.  Or else.
+            //	If you sleep exactly the number of seconds, you can make your query fail
+            //	and get an error for exceeding twitters API rate limit.
+            // 	Adding a delay avoids this, i'm aware this is bad practice
             Thread.sleep((searchTweetsRateLimit.getSecondsUntilReset() + 61) * 1000L);
         }
     }
