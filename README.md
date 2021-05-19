@@ -1,7 +1,11 @@
 # Java-TwitterAnalyser
 This program uses Twitter's API to gather Tweets and performs Sentiment Analysis, <br />
 using Stanford's Natural Language Processing library, <br />
-and a targeted keyword search for different topics. <br />
+and a targeted keyword search for different topics. <br /> <br />
+NOTE: You must have a Twitter Developer account, for this app to work! <br />
+!!! Place 3 files: consumer_key.txt, consumer_secret.txt, bearer_token.txt <br /> 
+each with their corresponding API keys on the first line, inside the "access_codes" folder, <br />
+or this app will not work, as the Twitter API requires user authentication. <br />
 <br />
 What do you get with this program?<br />
 <br />  
