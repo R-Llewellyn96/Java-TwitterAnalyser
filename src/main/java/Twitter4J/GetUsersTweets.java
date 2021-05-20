@@ -7,7 +7,7 @@ import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import static Twitter4J.Utils.Endpoints.USERS_SEARCHFAMILY;
@@ -34,16 +34,16 @@ public class GetUsersTweets {
     public static List<Tweet> getUserTweets(Long userId, Twitter twitter) throws TwitterException, InterruptedException {
 
         // Create Instance of List of Tweets
-        List<Tweet> tweetList = new LinkedList<>();
+        List<Tweet> tweetList = new ArrayList<>();
 
         // Check whether userId entered is blank or not
         if (userId != null) {
 
             // Initialise starting page number
-            int pageNo = 1;
+            int pageNo = 0;
 
             // Statuses from API, store in this list
-            List<Status> statuses = new LinkedList<>();
+            List<Status> statuses = new ArrayList<>();
 
             // infinite loop to get all tweets
             while (true) {

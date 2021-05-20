@@ -1,6 +1,4 @@
-import Twitter4J.GetTweetSentimentParallel;
 import Twitter4J.GetUserId;
-import Twitter4J.GetUsersTweets;
 import Twitter4J.Utils.*;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -8,7 +6,11 @@ import twitter4j.TwitterException;
 import java.util.Arrays;
 import java.util.List;
 
+import static Twitter4J.GetTweetSentimentParallel.*;
+import static Twitter4J.GetUsersTweets.*;
 import static Twitter4J.Utils.CheckTweetListAgainstWordList.checkTweetListAgainstWordlist;
+import static Twitter4J.Utils.ConvertTweetListIntoCSV.*;
+import static Twitter4J.Utils.GetStringsFromFile.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,8 +30,8 @@ public class Main {
 
         try {
             // Get access codes from files
-            String consumerKey = GetStringsFromFile.getStringsFromFile("access_codes/consumer_key.txt").get(0).trim();
-            String consumerSecret = GetStringsFromFile.getStringsFromFile("access_codes/consumer_secret.txt").get(0).trim();
+            String consumerKey = getStringsFromFile("access_codes/consumer_key.txt").get(0).trim();
+            String consumerSecret = getStringsFromFile("access_codes/consumer_secret.txt").get(0).trim();
 
             // Try to create twitter object
             try {
@@ -47,12 +49,12 @@ public class Main {
                 System.out.println("\nGetting Tweets, for user @" + usernameToSearch + " please stand by...\n");
 
                     // call method to get user tweets, returns a list of tweets
-                    List<Tweet> tweetList = GetUsersTweets.getUserTweets(userId, twitter);
+                    List<Tweet> tweetList = getUserTweets(userId, twitter);
 
                     long startTime = System.currentTimeMillis();
 
                     // Add sentiment to Tweets
-                    List<TweetWithSentiment> tweetWithSentimentList = GetTweetSentimentParallel.getTweetSentiment(tweetList);
+                    List<TweetWithSentiment> tweetWithSentimentList = getTweetSentimentParallel(tweetList);
 
                     long endTime = System.currentTimeMillis();
                     System.out.println("That took " + (endTime - startTime) + " milliseconds");
@@ -65,13 +67,13 @@ public class Main {
                         System.out.println("----Processing Tweets----");
 
                         // Get list of prohibited words from file
-                        List<String> politicalWords = GetStringsFromFile.getStringsFromFile("political-words.txt");
+                        List<String> politicalWords = getStringsFromFile("political-words.txt");
 
                         // Get list of prohibited words from file
-                        List<String> racistWords = GetStringsFromFile.getStringsFromFile("racist-words.txt");
+                        List<String> racistWords = getStringsFromFile("racist-words.txt");
 
                         // Get list of prohibited words from file
-                        List<String> swearWords = GetStringsFromFile.getStringsFromFile("swear-words.txt");
+                        List<String> swearWords = getStringsFromFile("swear-words.txt");
 
                         // Get list of political tweets by filtering tweet list against word list
                         // and extracting tweets containing political words
@@ -91,7 +93,7 @@ public class Main {
                         System.out.println("Tweets with swear words : " + swearTweets.size());
 
                         // Save politicalTweets to CSV
-                        if (ConvertTweetListIntoCSV.convertTweetListIntoCSV(
+                        if (convertTweetListIntoCSV(
                                 politicalTweets,
                                 usernameToSearch,
                                 "political",
@@ -102,7 +104,7 @@ public class Main {
                         }
 
                         // Save racistTweets to CSV
-                        if (ConvertTweetListIntoCSV.convertTweetListIntoCSV(
+                        if (convertTweetListIntoCSV(
                                 racistTweets,
                                 usernameToSearch,
                                 "racist",
@@ -113,7 +115,7 @@ public class Main {
                         }
 
                         // Save politicalTweets to CSV
-                        if (ConvertTweetListIntoCSV.convertTweetListIntoCSV(
+                        if (convertTweetListIntoCSV(
                                 swearTweets,
                                 usernameToSearch,
                                 "swearing",

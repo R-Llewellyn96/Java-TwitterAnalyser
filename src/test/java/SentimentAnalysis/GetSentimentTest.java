@@ -4,7 +4,7 @@ import Twitter4J.Utils.Tweet;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import static Twitter4J.Utils.TweetTextContainsCommasEscape.escapeCommas;
@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GetSentimentTest {
 
-    // Create Linked List of Tweets to hold our tweets
-    private static final List<Tweet> tweetListTest = new LinkedList<>();
+    // Create ArrayList of Tweets to hold our tweets
+    private static final List<Tweet> tweetListTest = new ArrayList<>();
 
-    // add new tweets to the LinkedList
+    // add new tweets to the ArrayList
     @BeforeAll
     static void beforeAll() {
         tweetListTest.add(new

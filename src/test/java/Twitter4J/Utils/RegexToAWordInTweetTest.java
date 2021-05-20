@@ -38,9 +38,9 @@ class RegexToAWordInTweetTest {
         try {
             boolean wordFound = RegexToAWordInTweet.regexToAWordInTweet("injecting", tweetListTest.get(1).tweetText);
             assertTrue(wordFound);
-            System.out.println("Get Profanity from File: PASSED");
+            System.out.println("Get Word from File: PASSED");
         } catch (Exception e) {
-            System.out.println("Get Profanity from File: FAILED");
+            System.out.println("Get Word from File: FAILED");
             fail("Exception: " + e);
         }
     }

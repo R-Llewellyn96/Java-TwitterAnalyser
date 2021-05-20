@@ -5,7 +5,7 @@ import Twitter4J.Utils.TweetWithSentiment;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import static Twitter4J.Utils.TweetTextContainsCommasEscape.escapeCommas;
@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GetTweetSentimentTest {
 
-    // Create Linked List of Tweets to hold our tweets
-    private static final List<Tweet> tweetListTest = new LinkedList<>();
+    // Create List of Tweets to hold our tweets
+    private static final List<Tweet> tweetListTest = new ArrayList<>();
 
     // add new tweets to the arraylist
     @BeforeAll
@@ -47,7 +47,7 @@ class GetTweetSentimentTest {
         try {
             assertNotNull(tweetListTest);
             assertTrue(tweetListTest.size() > 0);
-            List<TweetWithSentiment> returnedObj = GetTweetSentimentParallel.getTweetSentiment(tweetListTest);
+            List<TweetWithSentiment> returnedObj = GetTweetSentiment.getTweetSentiment(tweetListTest);
             assertFalse(returnedObj.isEmpty());
             for (TweetWithSentiment tweet : returnedObj) {
                 System.out.println(tweet.sentimentScore);

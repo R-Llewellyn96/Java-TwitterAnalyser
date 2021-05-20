@@ -3,7 +3,8 @@ package Twitter4J;
 import Twitter4J.Utils.Tweet;
 import Twitter4J.Utils.TweetWithSentiment;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static SentimentAnalysis.GetSentiment.getSentimentScore;
@@ -17,8 +18,8 @@ public class GetTweetSentiment {
      */
     public static List<TweetWithSentiment> getTweetSentiment(List<Tweet> tweetList) {
 
-        // Initialise a LinkedList of tweets with a sentiment score
-        List<TweetWithSentiment> tweetWithSentimentList = new LinkedList<>();
+        // Initialise a ArrayList of tweets with a sentiment score
+        List<TweetWithSentiment> tweetWithSentimentList = new ArrayList<>();
 
         // Initialise sentiment score, to check whether to add tweet
         int sentimentScore;
@@ -48,6 +49,10 @@ public class GetTweetSentiment {
                 tweetWithSentimentList.add(tweetWithSentiment);
             }
         }
+
+        // Sort list
+        tweetWithSentimentList.sort(Comparator.comparing(TweetWithSentiment::getId).reversed());
+
         // Return the list of tweets with sentiment scores to the caller
         return tweetWithSentimentList;
     }

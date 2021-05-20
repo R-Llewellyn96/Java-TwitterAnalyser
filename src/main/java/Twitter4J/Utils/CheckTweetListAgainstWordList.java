@@ -1,6 +1,6 @@
 package Twitter4J.Utils;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CheckTweetListAgainstWordList {
@@ -17,7 +17,7 @@ public class CheckTweetListAgainstWordList {
     public static List<TweetWithSentiment> checkTweetListAgainstWordlist(List<TweetWithSentiment> tweetList, List<String> wordList) {
 
         // List of Tweets to be returned to caller
-        List<TweetWithSentiment> problematicTweets = new LinkedList<>();
+        List<TweetWithSentiment> problematicTweets = new ArrayList<>();
 
         // Initialise boolean to check whether a tweet is contained in list
         boolean alreadyContainedInList = false;

@@ -19,9 +19,9 @@ class GetStringsFromFileTest {
             assertTrue(profanityList.size() > 0);
             Object returnedArrayListObject = GetStringsFromFile.getStringsFromFile(wordList);
             assertTrue(returnedArrayListObject instanceof ArrayList);
-            System.out.println("Get Profanity from File: PASSED");
+            System.out.println("Get words from File: PASSED");
         } catch (Exception e) {
-            System.out.println("Get Profanity from File: FAILED");
+            System.out.println("Get words from File: FAILED");
             fail("Exception: " + e);
         }
     }

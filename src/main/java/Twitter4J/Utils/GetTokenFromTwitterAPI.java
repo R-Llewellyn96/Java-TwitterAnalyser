@@ -36,9 +36,6 @@ public class GetTokenFromTwitterAPI {
         } catch (Exception e) {
 
             System.out.println("Could not get OAuth2 token");
-            e.printStackTrace();
-            System.exit(0);
-
         }
 
         return token;

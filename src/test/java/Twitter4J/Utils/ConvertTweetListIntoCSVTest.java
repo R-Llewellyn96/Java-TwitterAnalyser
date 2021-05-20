@@ -3,7 +3,7 @@ package Twitter4J.Utils;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ConvertTweetListIntoCSVTest {
 
     // Create arraylist of Tweets to hold our tweets
-    private static final List<TweetWithSentiment> tweetListTest = new LinkedList<>();
+    private static final List<TweetWithSentiment> tweetListTest = new ArrayList<>();
 
     // add new tweets to the arraylist
     @BeforeAll

@@ -4,7 +4,7 @@ import twitter4j.JSONArray;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GetStringsFromFile {
@@ -25,7 +25,7 @@ public class GetStringsFromFile {
         // Initialise ArrayList,
         // we will convert lines in the text file
         // into an ArrayList, which will be turned into a JSON array for use in comparisons to tweet content later
-        List<String> wordList = new LinkedList<>();
+        List<String> wordList = new ArrayList<>();
 
         // Create instance of BufferedReader object
         BufferedReader bufferedReader;
