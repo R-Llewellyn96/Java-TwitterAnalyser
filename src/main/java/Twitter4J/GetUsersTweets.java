@@ -40,7 +40,7 @@ public class GetUsersTweets {
         if (userId != null) {
 
             // Initialise starting page number
-            int pageNo = 0;
+            int pageNo = 1;
 
             // Statuses from API, store in this list
             List<Status> statuses = new ArrayList<>();
