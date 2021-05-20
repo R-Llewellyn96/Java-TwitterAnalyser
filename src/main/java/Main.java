@@ -1,4 +1,3 @@
-import Twitter4J.GetUserId;
 import Twitter4J.Utils.*;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -7,10 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import static Twitter4J.GetTweetSentimentParallel.*;
+import static Twitter4J.GetUserId.*;
 import static Twitter4J.GetUsersTweets.*;
-import static Twitter4J.Utils.CheckTweetListAgainstWordList.checkTweetListAgainstWordlist;
+import static Twitter4J.Utils.CheckTweetListAgainstWordListParallel.*;
 import static Twitter4J.Utils.ConvertTweetListIntoCSV.*;
 import static Twitter4J.Utils.GetStringsFromFile.*;
+import static Twitter4J.Utils.GetTwitterObject.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,11 +38,11 @@ public class Main {
             try {
             // authenticate using access codes from twitter developer account
             // Get twitter API instance
-            Twitter twitter = GetTwitterObject.getTwitter(consumerKey, consumerSecret);
+            Twitter twitter = getTwitter(consumerKey, consumerSecret);
 
             // Call getUserId method and pass the username,
             // will return userId which can be used to gather tweets
-            Long userId = GetUserId.getUserId(usernameToSearch, twitter);
+            Long userId = getUserId(usernameToSearch, twitter);
 
             // check that a userId was found, else tell user no account found.
             if (userId != null) {
@@ -77,15 +78,15 @@ public class Main {
 
                         // Get list of political tweets by filtering tweet list against word list
                         // and extracting tweets containing political words
-                        List<TweetWithSentiment> politicalTweets = checkTweetListAgainstWordlist(tweetWithSentimentList, politicalWords);
+                        List<TweetWithSentiment> politicalTweets = checkTweetListAgainstWordlistParallel(tweetWithSentimentList, politicalWords);
 
                         // Get list of political tweets by filtering tweet list against word list
                         // and extracting tweets containing political words
-                        List<TweetWithSentiment> racistTweets = checkTweetListAgainstWordlist(tweetWithSentimentList, racistWords);
+                        List<TweetWithSentiment> racistTweets = checkTweetListAgainstWordlistParallel(tweetWithSentimentList, racistWords);
 
                         // Get list of political tweets by filtering tweet list against word list
                         // and extracting tweets containing political words
-                        List<TweetWithSentiment> swearTweets = checkTweetListAgainstWordlist(tweetWithSentimentList, swearWords);
+                        List<TweetWithSentiment> swearTweets = checkTweetListAgainstWordlistParallel(tweetWithSentimentList, swearWords);
 
                         System.out.println("Tweets Processed : " + tweetWithSentimentList.size());
                         System.out.println("Tweets with political words : " + politicalTweets.size());
