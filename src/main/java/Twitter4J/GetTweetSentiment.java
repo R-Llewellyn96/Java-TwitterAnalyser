@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import static SentimentAnalysis.GetSentiment.getSentimentScore;
+import static SentimentAnalysis.GetSentiment.*;
 
 public class GetTweetSentiment {
 
@@ -16,7 +16,7 @@ public class GetTweetSentiment {
      * @param tweetList The list of tweets to be processed
      * @return tweetWithSentimentList The list of processed tweets with sentiment scores
      */
-    public static List<TweetWithSentiment> getTweetSentiment(List<Tweet> tweetList) {
+    public List<TweetWithSentiment> getTweetSentiment(List<Tweet> tweetList) {
 
         // Initialise a ArrayList of tweets with a sentiment score
         List<TweetWithSentiment> tweetWithSentimentList = new ArrayList<>();

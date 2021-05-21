@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Twitter4J.GetTweetSentimentParallel.*;
 import static Twitter4J.Utils.TweetTextContainsCommasEscape.escapeCommas;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -46,9 +45,11 @@ class GetTweetSentimentParallelTest {
     @Test
     void getTweetSentiment() {
         try {
+            // Create instance of GetTweetSentimentParallel
+            GetTweetSentimentParallel getSentimentParallel = new GetTweetSentimentParallel();
             assertNotNull(tweetListTest);
             assertTrue(tweetListTest.size() > 0);
-            List<TweetWithSentiment> returnedObj = getTweetSentimentParallel(tweetListTest);
+            List<TweetWithSentiment> returnedObj = getSentimentParallel.getTweetSentimentParallel(tweetListTest);
             assertFalse(returnedObj.isEmpty());
             for (TweetWithSentiment tweet : returnedObj) {
                 System.out.println(tweet.sentimentScore);

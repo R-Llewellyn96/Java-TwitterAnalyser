@@ -17,7 +17,7 @@ public class GetTweetSentimentParallel {
      * @param tweetList The list of tweets to be processed
      * @return tweetWithSentimentList The list of processed tweets with sentiment scores
      */
-    public static List<TweetWithSentiment> getTweetSentimentParallel(List<Tweet> tweetList) {
+    public List<TweetWithSentiment> getTweetSentimentParallel(List<Tweet> tweetList) {
 
         // Initialise a ArrayList of tweets with a sentiment score
         List<TweetWithSentiment> tweetWithSentimentList = new ArrayList<>();

@@ -21,7 +21,7 @@ public class GetUserId {
      * @param twitter The Twitter API instance used for access to Twitter servers.
      * @return userId The Twitter ID of the user, who's username was searched for, used for requesting Tweets.
      */
-    public static Long getUserId(String usernameToSearch, Twitter twitter) {
+    public Long getUserId(String usernameToSearch, Twitter twitter) {
         // search term twitter api endpoint: /users/by/username/:username
 
         // Create Instance of userId

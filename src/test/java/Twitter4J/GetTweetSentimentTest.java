@@ -45,9 +45,11 @@ class GetTweetSentimentTest {
     @Test
     void getTweetSentiment() {
         try {
+            // Create instance of GetTweetSentiment
+            GetTweetSentiment getSentiment = new GetTweetSentiment();
             assertNotNull(tweetListTest);
             assertTrue(tweetListTest.size() > 0);
-            List<TweetWithSentiment> returnedObj = GetTweetSentiment.getTweetSentiment(tweetListTest);
+            List<TweetWithSentiment> returnedObj = getSentiment.getTweetSentiment(tweetListTest);
             assertFalse(returnedObj.isEmpty());
             for (TweetWithSentiment tweet : returnedObj) {
                 System.out.println(tweet.sentimentScore);

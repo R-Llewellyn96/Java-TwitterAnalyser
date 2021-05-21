@@ -31,7 +31,7 @@ public class GetUsersTweets {
      * @throws TwitterException An Exception from the Twitter API, e.g. invalid Keys or Over request limit.
      * @throws InterruptedException An exception which interrupts the execution of the program.
      */
-    public static List<Tweet> getUserTweets(Long userId, Twitter twitter) throws TwitterException, InterruptedException {
+    public List<Tweet> getUserTweets(Long userId, Twitter twitter) throws TwitterException, InterruptedException {
 
         // Create Instance of List of Tweets
         List<Tweet> tweetList = new ArrayList<>();
