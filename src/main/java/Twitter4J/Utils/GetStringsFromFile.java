@@ -17,7 +17,7 @@ public class GetStringsFromFile {
      * @author Ryan Llewellyn
      * @return wordList The ArrayList of Strings from the bad-words.txt file, containing offensive words.
      */
-    public static List<String> getStringsFromFile(String filename) {
+    public static String[] getStringsFromFile(String filename) {
 
         // URL to profanity text document, containing swear words
         String fileURI = "src/main/java/" + filename;
@@ -56,9 +56,9 @@ public class GetStringsFromFile {
             e.printStackTrace();
         }
 
-        // Return list to method caller, either full or null,
+        // Return list as array to method caller, either full or null,
         // depending on whether text file is present
-        return wordList;
+        return wordList.toArray(new String[0]);
     }
 
     /**

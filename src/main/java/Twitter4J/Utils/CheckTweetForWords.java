@@ -16,8 +16,8 @@ public class CheckTweetForWords {
         // Initialise the content of the passed tweet to a String object
         String tweetContent = tweet.tweetText;
 
-        // Get arraylist of banned words for comparison to tweet content
-        List<String> bannedWords = GetStringsFromFile.getStringsFromFile("political-words.txt");
+        // Get string array of banned words for comparison to tweet content
+        String[] bannedWords = GetStringsFromFile.getStringsFromFile("political-words.txt");
 
         // Loop through each word in the banned word list, and return true if theres a match
         for (String word : bannedWords) {

@@ -15,7 +15,7 @@ public class CheckTweetListAgainstWordListParallel {
      * @param wordList The problematic words list to check tweet content against.
      * @return problematicTweets The list of tweets containing problematic words.
      */
-    public static List<TweetWithSentiment> checkTweetListAgainstWordlistParallel(List<TweetWithSentiment> tweetList, List<String> wordList) {
+    public static List<TweetWithSentiment> checkTweetListAgainstWordlistParallel(List<TweetWithSentiment> tweetList, String[] wordList) {
 
         // List of Tweets to be returned to caller
         List<TweetWithSentiment> problematicTweets = new ArrayList<>();

@@ -32,8 +32,8 @@ public class Main {
             try {
 
                 // Get access codes from files
-                String consumerKey = getStringsFromFile("access_codes/consumer_key.txt").get(0).trim();
-                String consumerSecret = getStringsFromFile("access_codes/consumer_secret.txt").get(0).trim();
+                String consumerKey = getStringsFromFile("access_codes/consumer_key.txt")[0];
+                String consumerSecret = getStringsFromFile("access_codes/consumer_secret.txt")[0];
 
                 // Try to create twitter object
                 try {
@@ -44,7 +44,6 @@ public class Main {
 
                     // Create instance of GetUserId
                     GetUserId getId = new GetUserId();
-
 
                     // Call getUserId method and pass the username,
                     // will return userId which can be used to gather tweets
@@ -81,14 +80,14 @@ public class Main {
                             System.out.println("Total in Tweet List: " + tweetList.size());
                             System.out.println("----Processing Tweets----");
 
-                            // Get list of prohibited words from file
-                            List<String> politicalWords = getStringsFromFile("political-words.txt");
+                            // Get String Array of prohibited words from file
+                            String[] politicalWords = getStringsFromFile("political-words.txt");
 
-                            // Get list of prohibited words from file
-                            List<String> racistWords = getStringsFromFile("racist-words.txt");
+                            // Get String Array of prohibited words from file
+                            String[] racistWords = getStringsFromFile("racist-words.txt");
 
-                            // Get list of prohibited words from file
-                            List<String> swearWords = getStringsFromFile("swear-words.txt");
+                            // Get String Array of prohibited words from file
+                            String[] swearWords = getStringsFromFile("swear-words.txt");
 
                             // Get list of political tweets by filtering tweet list against word list
                             // and extracting tweets containing political words

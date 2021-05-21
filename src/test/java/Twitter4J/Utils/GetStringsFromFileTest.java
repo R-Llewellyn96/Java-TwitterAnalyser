@@ -14,11 +14,11 @@ class GetStringsFromFileTest {
     void getStringsFromFile() {
         try {
             String wordList = "political-words.txt";
-            List<String> profanityList = GetStringsFromFile.getStringsFromFile(wordList);
+            String[] profanityList = GetStringsFromFile.getStringsFromFile(wordList);
             assertNotNull(profanityList);
-            assertTrue(profanityList.size() > 0);
-            Object returnedArrayListObject = GetStringsFromFile.getStringsFromFile(wordList);
-            assertTrue(returnedArrayListObject instanceof ArrayList);
+            assertTrue(profanityList.length > 0);
+            Object returnedWords = GetStringsFromFile.getStringsFromFile(wordList);
+            assertTrue(returnedWords instanceof String[]);
             System.out.println("Get words from File: PASSED");
         } catch (Exception e) {
             System.out.println("Get words from File: FAILED");
